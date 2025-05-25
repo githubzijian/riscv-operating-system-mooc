@@ -25,6 +25,9 @@ void sched_init()
 
 	/* enable machine-mode software interrupts. */
 	w_mie(r_mie() | MIE_MSIE);
+
+	/* enable machine-mode global interrupts. */
+	w_mstatus(r_mstatus() | MSTATUS_MIE);
 }
 
 /*
